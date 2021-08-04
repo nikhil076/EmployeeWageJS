@@ -49,6 +49,7 @@ function sum(dailyWage)
 	return totalEmpWage += dailyWage;
 }
 
+//Calculating total wage using array forEach traversal 
 empDailyWageArray.forEach(sum);
 console.log("UC7(a) Total Days :"+totalWorkingDays + "  Total Hours :" +totalEmpHrs + "  Employee Wage :" + totalEmpWage);
 
@@ -59,6 +60,7 @@ function totalWages(totalWages,dailyWage)
 
 console.log("UC7(a) Employee wage with reduce :" +empDailyWageArray.reduce(totalWages,0));
 
+// Show the day along with Daily Wage using Array Map Helper Function
 let dailyCount = 0;
 function mapDailyWithWage(dailyWage)
 {
@@ -68,3 +70,11 @@ function mapDailyWithWage(dailyWage)
 
 let mapDailyWithWageArray = empDailyWageArray.map(mapDailyWithWage);
 console.log("UC7(b) : Daily Wage Map :"+mapDailyWithWageArray);
+
+//Display Days when Full time Wage of 160 were earned
+function fullTimeWage(dailyWage) {
+    return dailyWage.includes("160");
+}
+
+let fullDayWageArray = mapDailyWithWageArray.filter(fullTimeWage);
+console.log("UC7(c) : Daily Wage Filter when Fulltime Wage Earned : " + fullDayWageArray);
