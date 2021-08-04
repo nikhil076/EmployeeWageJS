@@ -5,6 +5,7 @@ const FULL_TIME_HOURS = 8;
 const WAGE_PER_HOURS = 20;
 const NUM_OF_WORKING_DAYS = 20;
 const MAX_HRS_IN_MONTH = 100;
+var empDailyWageMap = new Map();
 
 function getWorkingHours(empCheck)
 {
@@ -34,7 +35,13 @@ while(totalEmpHrs<=MAX_HRS_IN_MONTH  && totalWorkingDays<NUM_OF_WORKING_DAYS)
 	let empHrs = getWorkingHours(empCheck);
 	totalEmpHrs+= empHrs;
 	empDailyWageArray.push(calculateDailyWage(empHrs));
+	empDailyWageMap.set(totalWorkingDays, calculateDailyWage(empHrs));
 }
+//To get total employee wage using map
+console.log(empDailyWageMap);
+console.log("Employee wage map total "+Array.from(empDailyWageMap.values()).reduce(totalWages,0));
+
+
 console.log(empDailyWageArray);
 let empWage = calculateDailyWage(totalEmpHrs);
 console.log("Total Employee Wage is :"+empWage+" Total Hours :"+totalEmpHrs+" total Working days : "+totalWorkingDays);
