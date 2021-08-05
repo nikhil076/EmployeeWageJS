@@ -1,7 +1,4 @@
 class EmployeePayrollData{
-    //property
-    id;
-    salary;
 
     // constructor
     constructor(...params) {
@@ -19,6 +16,40 @@ class EmployeePayrollData{
         if(nameRegex.test(name))
             this._name = name;
         else throw "Name is incorrect";
+    }
+
+    get id() { return this._id; }
+    set id(id) {
+        let idRegex = RegExp('^[1-9]{1}[0-9]*$');
+        if (idRegex.test(id)) {
+            this._id = id;
+        } else {
+            throw 'Incorrect Id';
+        }
+    }
+    get gender() { return this._gender; }
+    set gender(gender) {
+        let genderRegex = RegExp('^[MFmf]{1}$');
+        if (genderRegex.test(gender)) {
+            this._gender = gender;
+        } else {
+            throw 'Invalid input for gender';
+        }
+    }
+    get salary() { return this._salary; }
+    set salary(salary) {
+        let salaryRegex = RegExp('^[1-9]{1}[0-9]*$');
+        if (salaryRegex.test(salary)) {
+            this._salary = salary;
+        } else {
+            throw 'Invalid input for salary';
+        }
+    }
+    get startDate() { return this._startDate; }
+    set startDate(startDate) {
+        if (startDate <= new Date())
+            this._startDate = startDate;
+        else throw "Incorrect date";
     }
 
     //method
@@ -39,3 +70,28 @@ try{
 }
 let newEmployeePayrollData = new EmployeePayrollData(1,"Terrisa",30000,"F",new Date());
 console.log(newEmployeePayrollData.toString());
+
+try {
+    newEmployeePayrollData.name = "Akshay";
+    console.log(newEmployeePayrollData.toString());
+} catch (e) {
+    console.error(e);
+}
+try {
+    newEmployeePayrollData.id = -1;
+    console.log(newEmployeePayrollData.toString());
+} catch (e) {
+    console.error(e);
+}
+try {
+    newEmployeePayrollData.salary = -1;
+    console.log(newEmployeePayrollData.toString());
+} catch (e) {
+    console.error(e);
+}
+try {
+    newEmployeePayrollData.startDate = new Date();
+    console.log(newEmployeePayrollData.toString());
+} catch (e) {
+    console.error(e);
+}
