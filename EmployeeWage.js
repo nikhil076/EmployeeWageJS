@@ -173,5 +173,9 @@ console.log(`Non working days: ${nonWorkingDays}`);
 	console.log("\nUC 11.a Calculate total hours and wage using arrow functions");
 	console.log("Total Hours: " + totalHours + "   Total Wage: " + totalWage);
 
+	//UC 11.b Show the full working days using foreach
+
+	let fullWorkingDays = employeeDailyHoursAndWageArray.filter(obj => obj.dailyHours == 8).forEach(obj => process.stdout.write(obj.toString()));
+	console.log(fullWorkingDays);
 }
 
