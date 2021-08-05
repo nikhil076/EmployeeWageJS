@@ -176,6 +176,13 @@ console.log(`Non working days: ${nonWorkingDays}`);
 	//UC 11.b Show the full working days using foreach
 
 	let fullWorkingDays = employeeDailyHoursAndWageArray.filter(obj => obj.dailyHours == 8).forEach(obj => process.stdout.write(obj.toString()));
-	console.log(fullWorkingDays);
+	console.log("\nUC 11.b Show the full working days"+fullWorkingDays);
+
+	//UC 11.c Show Part working days using Map by reducing to String Array
+	let partWorkingDays = employeeDailyHoursAndWageArray
+						.filter(obj => obj.dailyHours == 4)
+						.map(obj => obj.toString());
+	console.log("UC_11.c Show part time working days");
+
 }
 
