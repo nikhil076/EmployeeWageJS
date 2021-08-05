@@ -122,6 +122,8 @@ function totalDaysWorked(numOfDays, dailyWage) {
 console.log("UC7(g) : Number of Days Employee Worked : " 
 + empDailyWageArray.reduce(totalDaysWorked, 0));
 
+
+// To add part time , full time , no working days of employee in the maps
 let nonWorkingDays = new Array();
 let partWorkingDays = new Array();
 let fullWorkingDays = new Array();
