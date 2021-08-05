@@ -136,3 +136,30 @@ empDailyHourMap.forEach((values,key) => {
 console.log(`Full working days: ${fullWorkingDays}`);
 console.log(`Part working days: ${partWorkingDays}`);
 console.log(`Non working days: ${nonWorkingDays}`);
+
+/**
+ * creating object
+ */
+ {
+    let employeeHrs = 0;
+    let employeeWorkingDays = 0;
+    let employeeDailyHoursAndWageArray = new Array();
+    while (employeeHrs <= MAX_HRS_IN_MONTH && employeeWorkingDays < NUM_OF_WORKING_DAYS) {
+        employeeWorkingDays++;
+        let empCheck = Math.floor(Math.random() * 10) % 3;
+        let employeeWorkingHours = getWorkingHours(empCheck);
+        employeeHrs += employeeWorkingDays;
+        employeeDailyHoursAndWageArray.push(
+            {
+                dayCount : employeeWorkingDays,
+                dailyHours : employeeWorkingHours,
+                dailyWages : calculateDailyWage(employeeWorkingHours),
+                toString() {
+                    return "\nDay " + this.dayCount + " => Working Hours is: "
+                    + this.dailyHours + " , Wage earned = " + this.dailyWages
+                },
+            }
+        );
+    }
+    console.log("Showing daily hours worked and wage earned: " + employeeDailyHoursAndWageArray);
+}
