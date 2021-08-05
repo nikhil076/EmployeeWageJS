@@ -162,4 +162,16 @@ console.log(`Non working days: ${nonWorkingDays}`);
         );
     }
     console.log("Showing daily hours worked and wage earned: " + employeeDailyHoursAndWageArray);
+
+	//UC 11 Using Arrow Functions
+	let totalHours = employeeDailyHoursAndWageArray
+					.filter(obj => obj.dailyHours > 0)
+					.reduce((totalHours, obj) => totalHours += obj.dailyHours, 0);
+	let totalWage = employeeDailyHoursAndWageArray
+					.filter(obj => obj.dailyWages > 0)
+					.reduce((totalWage,obj) => totalWage += obj.dailyWages,0);
+	console.log("\nUC 11.a Calculate total hours and wage using arrow functions");
+	console.log("Total Hours: " + totalHours + "   Total Wage: " + totalWage);
+
 }
+
